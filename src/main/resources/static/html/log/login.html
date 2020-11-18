@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<head>
+  <script type="text/javascript" src="/html/js/jquery-1.10.2.min.js"></script>
+  <script>
+    function login() {
+      $.ajax({
+        url: '/loginSys',
+        type: $('#login').attr('method'),
+        data: $('#login').serializeArray(),
+        success: function(data) {
+          if (data.code != 0) {
+            alert(data.msg)
+          }else{
+            window.location = '/html/log/index.html';
+          }
+        }
+      });
+    }
+
+  </script>
+</head>
+<body>
+系统日志
+<form method="post" action="/loginSys" id="login">
+  账号<input type="text" name="loginName" value="">
+  密码<input type="password" name="loginSecret" value="">
+  <input type="hidden" name="loginType" value="LOG">
+  <input type="button" value="提交" onclick="login()">
+</form>
+
+</body>
+</html>
+
+
+

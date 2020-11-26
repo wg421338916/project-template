@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
     <contextName>logback</contextName>
-    <property name="log_dir" value="./logs"/>
+    <property name="log_dir" value="./log"/>
     <property name="maxHistory" value="60"/>
     <property name="DATETIME" value="yyyy-MM-dd HH:mm:ss"/>
+    <property name="home" value="./log"/>
     <property name="minIndex" value="1"/>
     <property name="maxIndex" value="3"/>
     <property name="maxSize" value="20MB"/>
@@ -21,18 +22,21 @@
 
     <!-- INFO 输入到文件，按日期和文件大小 -->
     <appender name="info" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${log_dir}/all.output.log</file>
-        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <charset>${charset}</charset>
-            <pattern>${pattern}</pattern>
+        <encoder charset="utf-8">
+            <pattern>[%-5level] %d{${DATETIME}} [%thread] %logger{36} - %m%n
+            </pattern>
         </encoder>
-        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+<!--        <filter class="ch.qos.logback.classic.filter.LevelFilter">-->
+<!--            <level>INFO</level>-->
+<!--            <onMatch>ACCEPT</onMatch>-->
+<!--            <onMismatch>DENY</onMismatch>-->
+<!--        </filter>-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- 按天回滚 daily -->
-            <fileNamePattern>${log_dir}/info%d{yyyy-MM-dd}.%i.log
+            <fileNamePattern>${log_dir}/info%d{yyyy-MM-dd}.log
             </fileNamePattern>
             <!-- 日志最大的历史 60天 -->
             <maxHistory>${maxHistory}</maxHistory>
-            <maxFileSize>${maxSize}</maxFileSize>
             <totalSizeCap>${totalSize}</totalSizeCap>
         </rollingPolicy>
     </appender>
@@ -54,6 +58,7 @@
             </fileNamePattern>
             <!-- 日志最大的历史 60天 -->
             <maxHistory>${maxHistory}</maxHistory>
+            <!--      <maxFileSize>${maxSize}</maxFileSize>-->
             <totalSizeCap>${totalSize}</totalSizeCap>
         </rollingPolicy>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
@@ -79,6 +84,7 @@
             </fileNamePattern>
             <!-- 日志最大的历史 60天 -->
             <maxHistory>${maxHistory}</maxHistory>
+            <!--      <maxFileSize>${maxSize}</maxFileSize>-->
             <totalSizeCap>${totalSize}</totalSizeCap>
         </rollingPolicy>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">

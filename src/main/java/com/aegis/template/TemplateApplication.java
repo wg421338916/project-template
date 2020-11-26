@@ -1,13 +1,8 @@
 package com.aegis.template;
 
-import com.aegis.template.commons.config.GlobalConfig;
-import de.codecentric.boot.admin.server.config.EnableAdminServer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.DependsOn;
-
-import java.time.LocalDateTime;
 
 /**
  * 系统入口类
@@ -19,22 +14,9 @@ import java.time.LocalDateTime;
  * @since 1.0.0
  */
 @SpringBootApplication
-@EnableAdminServer
 @Slf4j
-@DependsOn({"applicationContextUtils","redisTemplate","ehCacheCacheManager"})
 public class TemplateApplication {
-
-  /**
-   * 优先注入全局配置 GlobalConfig,否则可能会引起未知异常
-   *
-   * @param config
-   */
-  public TemplateApplication(GlobalConfig config) {
-    log.info("程序启动,启动时间:{},{}", LocalDateTime.now(), config.toString());
-  }
-
   public static void main(String[] args) {
     SpringApplication.run(TemplateApplication.class, args);
   }
-
 }

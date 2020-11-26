@@ -1,96 +1,25 @@
 server:
-  port: 8080
+  port: 8083
   servlet:
     session:
       timeout: 25200 # session超时时间为25200秒=7天
 
+
 spring:
-  boot:
-    admin:
-      client:
-        instance:
-          metadata:
-            user:
-              name: ${spring.boot.admin.client.username}
-              password: ${spring.boot.admin.client.password}
-        url: http://localhost:${server.port}
-        username: aegis
-        password: 6543er1!
-      ui:
-        title: ${aegis.name}
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    druid:
-      initial-size: 8
-      min-idle: 1
-      max-active: 20
-      max-wait: 60000
-      time-between-eviction-runsMillis: 60000
-      min-evictable-idle-timeMillis: 300000
-      validation-query: select 'x' FROM DUAL
-      test-while-idle: true
-      test-on-borrow: false
-      test-on-return: false
-      pool-prepared-statements: true
-      max-open-prepared-statements: 20
-      max-pool-prepared-statement-per-connection-size: 20
-      filters: stat
-      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
-      use-global-data-source-stat: true
-    type: com.alibaba.druid.pool.DruidDataSource
-    password: Txtfy_CC_Court_2019
-    url: jdbc:mysql://114.115.179.177:3309/bjtemplate?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
-    username: court
-  redis:
+  rabbitmq:
+    port: 5672
     host: 192.168.10.7
-    port: 6379
-    database: 0
-    password:
-    lettuce:
-      pool:
-        # 最大活跃链接数 默认8
-        max-active: 8
-        # 最大空闲连接数 默认8
-        max-idle: 8
-        # 最小空闲连接数 默认0
-        min-idle: 0
-#mybatis plus
-mybatis-plus:
-  mapper-locations: classpath*:/mapper/*.xml
-  #实体扫描，多个package用逗号或者分号分隔
-  type-aliases-package: com.aegis.template.model.*
-  typeEnumsPackage: com.aegis.template.model.enums
-  global-config:
-    #刷新mapper 调试神器
-    db-config:
-      logic-delete-field: deleted
-      logic-delete-value: 1
-      logic-not-delete-value: 0
-#健康检查、审计、统计和监控
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-      path-mapping:
-        health: health
-    health:
-      show-details: ALWAYS
-
-aegis:
-  name: bjtemplate
-  version: 1.0.0
-  profile: /data
-  cors:
-    #携带cookie调用需要配置为域名
-    origins: '*'
-  encrypt:
-    seed: Yq3tIi8Td7d3/Ct8y+3Llw==
-
-logging:
-  file:
-    pattern:
-      file: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(${PID}){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wEx"
-    name: ./logs/all.output.log
+    username: guest
+    password: guest
+    template:
+      #mandatory 参数设为 true 时，交换器无法根据自身的类型和路由键找到一个符合条件的队列，
+      #那么 RabbitMQ 会调用 Basic.Return 命令将消息返回给生产者 。
+      #mandatory数设置为 false 时，出现上述情形，则消息直接被丢弃
+      mandatory: true
+      exchange: demo-fanout
+    #通过实现 ReturnCallback 接口，启动消息失败返回，比如路由不到队列时触发回调,该模式会在消息没有被路由到queues时将消息返回
+    publisher-returns: true
+    #通过实现 ConfirmCallback 接口，消息发送到 Broker 后触发回调，确认消息是否到达 Broker 服务器，也就是只确认是否正确到达 Exchange 中
+    publisher-confirm-type: correlated
 
 

@@ -17,6 +17,9 @@
 
     <modules>
         <module>eureka-demo</module>
+        <module>eureka-client</module>
+        <module>eureka-server</module>
+        <module>eureka-server-api</module>
     </modules>
 
     <properties>
@@ -121,6 +124,12 @@
                 <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.wanggang</groupId>
+                <artifactId>eureka-server-api</artifactId>
+                <version>${project.version}</version>
             </dependency>
 
             <!-- spring oauth2 （官方已经不在维护新版了） 不是starter,手动配置 -->

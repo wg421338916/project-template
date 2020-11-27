@@ -1,0 +1,17 @@
+eureka:
+  client:
+    registry-fetch-interval-seconds: 30
+    serviceUrl:
+      defaultZone: http://localhost:8077/eureka
+  instance:
+    hostname: localhost
+    #eureka server最后一次收到微服务实例心跳后，需要等待多久才可以将此实例删除
+    #具体什么时候被清除，还要看server是否开启保护机制及清理无效节点周期。如果坏的节点没被及时清理，可能导致较多的重试，太高频率耗资源
+    lease-expiration-duration-in-seconds: 60
+    #服务续约/心跳上报
+    lease-renewal-interval-in-seconds: 30
+server:
+  port: 7002
+spring:
+  application:
+    name: user-client

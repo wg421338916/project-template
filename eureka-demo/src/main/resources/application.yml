@@ -1,14 +1,20 @@
 eureka:
   client:
+    # false表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务
     fetch-registry: false
+    # false表示不向注册中心注册自己，集群模式需要把自己注册上
     register-with-eureka: false
     service-url:
       default-zone: http://${eureka.instance.hostname}:${server.port}/eureka
   instance:
     hostname: localhost
   server:
+    #开启动自我保护模式
     enable-self-preservation: true
-    renewal-percent-threshold: 0.5
+    #Renews threshold 的比例
+    renewal-percent-threshold: 0.85
+    #清理无效节点,默认60*1000毫秒,如果开启自己保护，eureka始终会保留一个微服务实例
+    eviction-interval-timer-in-ms: 60000
 server:
   port: 8077
 spring:

@@ -12,11 +12,11 @@ eureka:
     #开启动自我保护模式
     enable-self-preservation: true
     #Renews threshold 的比例
-    renewal-percent-threshold: 0.85
+    renewal-percent-threshold: 0.5
     #清理无效节点,默认60*1000毫秒,如果开启自己保护，eureka始终会保留一个微服务实例
     eviction-interval-timer-in-ms: 60000
 server:
-  port: 8077
+  port: 6000
 spring:
   application:
     name: eureka-server

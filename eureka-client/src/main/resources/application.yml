@@ -2,7 +2,7 @@ eureka:
   client:
     registry-fetch-interval-seconds: 30
     serviceUrl:
-      defaultZone: http://localhost:8077/eureka
+      defaultZone: http://localhost:6000/eureka
   instance:
     hostname: localhost
     #eureka server最后一次收到微服务实例心跳后，需要等待多久才可以将此实例删除
@@ -10,8 +10,15 @@ eureka:
     lease-expiration-duration-in-seconds: 60
     #服务续约/心跳上报
     lease-renewal-interval-in-seconds: 30
+
 server:
-  port: 7002
+  port: 8000
 spring:
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+      retry:
+        enabled: true
   application:
     name: user-client

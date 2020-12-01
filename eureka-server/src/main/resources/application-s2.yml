@@ -1,0 +1,5 @@
+demo:
+  whichOne: 2
+  sleep: 2
+server:
+  port: 7002

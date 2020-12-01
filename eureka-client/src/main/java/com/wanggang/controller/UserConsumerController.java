@@ -15,7 +15,7 @@ public class UserConsumerController {
   UserService userApi;
 
   @GetMapping("find")
-  public String getUser() {
+  public String getUser() throws InterruptedException {
     return userApi.getUser("test");
   }
 }

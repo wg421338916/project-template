@@ -17,8 +17,16 @@ spring:
   cloud:
     loadbalancer:
       ribbon:
-        enabled: false
+        enabled: true
       retry:
         enabled: true
+        retry-on-all-operations: true
   application:
     name: user-client
+feign:
+  httpclient:
+    connection-timeout: 1000
+    connection-timer-repeat: 3000
+
+
+

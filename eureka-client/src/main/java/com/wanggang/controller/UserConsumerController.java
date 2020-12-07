@@ -16,6 +16,9 @@ public class UserConsumerController {
 
   @GetMapping("find")
   public String getUser() throws InterruptedException {
-    return userApi.getUser("test");
+    System.out.println("开始请求");
+    String test = userApi.getUser("test");
+    System.out.println("请求完成");
+    return test;
   }
 }

@@ -1,0 +1,171 @@
+{
+	"info": {
+		"_postman_id": "ef9fc955-f5de-4d42-9649-1a0be6aa182b",
+		"name": "template",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:8083/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "loginType",
+							"value": "CAPTCHA",
+							"type": "text"
+						},
+						{
+							"key": "rememberMe",
+							"value": "true",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "captchaValue",
+							"value": "1234",
+							"type": "text"
+						},
+						{
+							"key": "loginSecret",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "loginName",
+							"value": "admin",
+							"type": "text"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": "http://127.0.0.1:8080/loginSys",
+				"description": "登录"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8083/web/v1/user/refuse",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:8080/web/v1/user/refuse"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8080/web/v1/user/page",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:8080/web/v1/user/page"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8080/web/v1/user/no_page",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:8080/web/v1/user/no_page"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8080/web/v1/user/other",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:8080/web/v1/user/other"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8080/web/v1/user/3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:8080/web/v1/user/3"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8080/throw",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:8080/throw"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8080/args",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:8080/args"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8080/throw",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:8080/throw"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8080/int",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:8080/int"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8080/string1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:8080/string1"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8080/string2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:8080/string1"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8080/page",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:8080/page"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8080/no_page",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:8080/no_page"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

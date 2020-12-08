@@ -1,0 +1,147 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <localRepository>D:\repository</localRepository>
+	<servers>
+		<server>
+			<id>nexus</id>
+			<username>liudonghai</username>
+			<password>Aegis2019</password>
+		</server>
+		<server>
+			<id>releases</id>
+			<username>****</username>
+			<password>Aegis2019</password>
+		</server>
+		<server>
+			<id>snapshots</id>
+			<username>****</username>
+			<password>Aegis2019</password>
+		</server>
+	</servers>
+	
+	<pluginGroups>
+    </pluginGroups>
+	
+    <proxies>
+    </proxies>
+	
+    <profiles>
+        <profile>
+            <id>MyProfile</id>			
+			<repositories>
+				<repository>
+				  <id>maven-public</id>
+				  <url>http://nexus.aegis-info.com/repository/maven-public/</url>
+				  <releases><enabled>true</enabled></releases>
+				  <snapshots><enabled>true</enabled></snapshots>
+				</repository>
+			  </repositories>
+			  
+			 <pluginRepositories>
+				<pluginRepository>
+				  <id>maven-public</id>
+				  <url>http://nexus.aegis-info.com/repository/maven-public/</url>
+				  <releases><enabled>true</enabled></releases>
+				  <snapshots><enabled>true</enabled></snapshots>
+				</pluginRepository>
+			  </pluginRepositories>
+        </profile>
+        <profile>
+            <id>jdk-1.8</id>
+            <activation>
+                <jdk>1.8</jdk>                <!--指定JDK版本是1.8时自动激活-->
+            </activation>
+            <repositories>
+                <repository>
+                    <id>nexus</id>
+                    <name>local private nexus</name>
+                    <url>http://maven.oschina.net/content/groups/public/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>nexus</id>
+                    <name>local private nexus</name>
+                    <url>http://maven.oschina.net/content/groups/public/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
+	
+    <mirrors>
+        <mirror>
+            <id>nexus</id>
+            <mirrorOf>central</mirrorOf>
+            <url>http://nexus.aegis-info.com/repository/maven-public/</url>
+        </mirror>
+        <mirror>
+            <id>maven</id>
+            <mirrorOf>maven</mirrorOf>
+            <url>http://repo1.maven.org/maven2</url>
+        </mirror>
+        <mirror>
+            <id>huaweicloud</id>
+            <mirrorOf>*,!HuaweiCloudSDK</mirrorOf>
+            <url>https://mirrors.huaweicloud.com/repository/maven/</url>
+        </mirror>
+        <mirror>
+            <id>nexus-osc-thirdparty</id>
+            <mirrorOf>thirdparty</mirrorOf>
+            <name>Nexus osc thirdparty</name>
+            <url>http://maven.oschina.net/content/repositories/thirdparty/</url>
+        </mirror>
+		<mirror>
+			<id>alimaven</id>
+			<name>aliyun maven</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+			<mirrorOf>central</mirrorOf>
+		</mirror>
+		<mirror>
+			<id>alimaven2</id>
+			<mirrorOf>central</mirrorOf>
+			<name>aliyun maven</name>
+			<url>http://maven.aliyun.com/nexus/content/repositories/central/</url>
+		</mirror>		 
+		<mirror>
+			<id>ibiblio</id>
+			<mirrorOf>central</mirrorOf>
+			<name>Human Readable Name for this Mirror.</name>
+			<url>http://mirrors.ibiblio.org/pub/mirrors/maven2/</url>
+		</mirror>
+		<mirror>
+			<id>jboss-public-repository-group</id>
+			<mirrorOf>central</mirrorOf>
+			<name>JBoss Public Repository Group</name>
+			<url>http://repository.jboss.org/nexus/content/groups/public</url>
+		</mirror>		 
+		<mirror>
+			<id>central</id>
+			<name>Maven Repository Switchboard</name>
+			<url>http://repo1.maven.org/maven2/</url>
+			<mirrorOf>central</mirrorOf>
+		</mirror>
+		<mirror>
+			<id>repo2</id>
+			<mirrorOf>central</mirrorOf>
+			<name>Human Readable Name for this Mirror.</name>
+			<url>http://repo2.maven.org/maven2/</url>
+		</mirror>
+    </mirrors>
+
+    <activeProfiles>
+        <activeProfile>MyProfile</activeProfile>
+    </activeProfiles>
+	
+</settings>

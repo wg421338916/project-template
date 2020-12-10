@@ -76,12 +76,17 @@
         </dependencies>
     </dependencyManagement>
 
+    <!--热部署 1.打开setting,2.找到build->compiler 3.勾选a，d，b，c开头的复选框 -->
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
+                <configuration>
+                    <fork>true</fork>
+                    <addResources>true</addResources>
+                </configuration>
             </plugin>
         </plugins>
     </build>

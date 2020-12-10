@@ -40,7 +40,7 @@ abstract class BaseDispatcherQueue<T> implements DispatcherQueue<T> {
     BaseDispatcherQueue.init();
 
     Assert.notNull(queueName, "队列名称不能为NULL");
-    Assert.isNull(BaseDispatcherQueue.dispatcherQueues.get(queueName.toUpperCase()), "【失败重试组件】重试组件已经存在相同名称的队列");
+    Assert.isNull(BaseDispatcherQueue.dispatcherQueues.get(queueName.toUpperCase()), "重试组件已经存在相同名称的队列,队列名称" + queueName);
 
     this.storeService = storeService;
     this.retryPolicy = retryPolicy;
@@ -113,7 +113,7 @@ abstract class BaseDispatcherQueue<T> implements DispatcherQueue<T> {
     boolean result = false;
 
     try {
-      result = handler.test(new RetryWrapperMessage<T>(message.getId(), message.getRetryCount(), message.getPayload()));
+      result = handler.test(new RetryWrapperMessage<T>(message.getQueueName(), message.getId(), message.getRetryCount(), message.getPayload()));
     } catch (Exception e) {
       log.warn("【失败重试组件】业务处理异常", e);
     }
@@ -173,7 +173,7 @@ abstract class BaseDispatcherQueue<T> implements DispatcherQueue<T> {
    */
   @Override
   public Boolean put(T retryContent, Long delayMillis, Boolean canRepeat) {
-    Assert.notNull(retryContent, "【失败重试组件】要处理的对象不能为NULL");
+    Assert.notNull(retryContent, "要处理的对象不能为NULL");
 
     if (this.handler == null) {
       return false;
@@ -215,7 +215,7 @@ abstract class BaseDispatcherQueue<T> implements DispatcherQueue<T> {
 
     try {
       List<RetryMessage<T>> list = storeService.queryAll();
-      log.info("【失败重试组件】put历史数据,size:{}", list.size());
+      log.info("【失败重试组件】queueName:{},put历史数据,size:{}", this.queueName, list.size());
       list.forEach(t -> t.setDelayTime(System.currentTimeMillis() + TimeUnit.SECONDS.toMillis(30)));
       BaseDispatcherQueue.delayQueue.addAll(list);
     } catch (Exception e) {

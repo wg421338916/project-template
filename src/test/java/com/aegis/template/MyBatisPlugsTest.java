@@ -1,4 +1,4 @@
-//package com.aegis.template;
+package com.aegis.template;//package com.aegis.template;
 //
 //import com.aegis.template.mapper.UserMapper;
 //import com.aegis.template.model.entity.User;

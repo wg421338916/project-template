@@ -37,7 +37,7 @@ public class NoAuthController {
 
   @GetMapping("/args")
   public void args() {
-
+    System.out.println("demo1");
   }
 
   @EncryptResponse

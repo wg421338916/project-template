@@ -1,7 +1,5 @@
 package com.aegis.template.commons.utils.retry.annotation;
 
-import org.springframework.scheduling.annotation.EnableAsync;
-
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -19,7 +17,6 @@ import java.lang.annotation.Target;
  * @date 2019/12/27
  * @since 1.0.0
  */
-@EnableAsync
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface RetrySyncQueue {

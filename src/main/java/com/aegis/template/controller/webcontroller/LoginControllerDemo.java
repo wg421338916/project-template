@@ -3,10 +3,12 @@ package com.aegis.template.controller.webcontroller;
 import com.aegis.template.commons.utils.ExcelUtils;
 import com.aegis.template.model.vo.UserVO;
 import com.google.common.collect.Lists;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -25,11 +27,18 @@ import java.util.List;
 @RestController
 @RequestMapping("web/v1/login")
 public class LoginControllerDemo extends WebBaseController {
+
+  @Autowired
+  private RestTemplate restTemplate;
+
   @PostMapping("download")
   public void download(HttpServletResponse response) throws IOException {
     List<UserVO> vos = Lists.newArrayList();
     vos.add(new UserVO(LocalDateTime.now(), "test1", "1"));
     vos.add(new UserVO(LocalDateTime.now(), "test2", "2"));
+
+    String body = restTemplate.getForEntity("https://www.baidu.com", String.class).getBody();
+    vos.add(new UserVO(LocalDateTime.now(), "test3", body));
 
     ExcelUtils.exportExcel(vos, "test", "name", UserVO.class, "test", true, response);
   }

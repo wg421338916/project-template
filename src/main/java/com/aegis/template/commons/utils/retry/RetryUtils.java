@@ -55,7 +55,7 @@ public class RetryUtils {
    * @return 队列
    * @throws IOException leveldb需要io操作
    */
-  public static <T extends Serializable> DispatcherQueue<T> getExponentialMemoryQueue(String queueName) {
+  public static <T> DispatcherQueue<T> getExponentialMemoryQueue(String queueName) {
     Assert.notNull(queueName, "队列名称不能为NULL");
 
     RetryPolicy policy = new ExponentialRetryPolicy(MAX_TRY_COUNT, TimeUnit.SECONDS.toMillis(INITIAL_SECONDS), TimeUnit.DAYS.toMillis(MAX_TRY_DAYS), MULTIPLIER);

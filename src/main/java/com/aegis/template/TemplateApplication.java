@@ -1,6 +1,7 @@
 package com.aegis.template;
 
 import com.aegis.template.commons.config.GlobalConfig;
+import com.aegis.template.commons.utils.retry.annotation.EnableRetrySync;
 import de.codecentric.boot.admin.server.config.EnableAdminServer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
@@ -18,6 +19,7 @@ import java.time.LocalDateTime;
  * @Copyright © 2020-2021 北京擎盾信息科技有限公司
  * @since 1.0.0
  */
+@EnableRetrySync
 @SpringBootApplication
 @EnableAdminServer
 @Slf4j

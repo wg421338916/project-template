@@ -53,7 +53,7 @@ public class GenericJackson2JsonRetrySerializer {
   }
 
   public static void registerNullValueSerializer(ObjectMapper objectMapper, @Nullable String classPropertyTypeName) {
-    objectMapper.registerModule((new SimpleModule()).addSerializer(new GenericJackson2JsonRetrySerializer.NullValueSerializer(classPropertyTypeName)));
+    objectMapper.registerModule((new SimpleModule()).addSerializer(new NullValueSerializer(classPropertyTypeName)));
   }
 
   private static class NullValueSerializer extends StdSerializer<NullValue> {
@@ -83,7 +83,6 @@ public class GenericJackson2JsonRetrySerializer {
     } catch (JsonProcessingException var3) {
       throw new SerializationException("Could not write JSON: " + var3.getMessage(), var3);
     }
-
   }
 
   @Nullable

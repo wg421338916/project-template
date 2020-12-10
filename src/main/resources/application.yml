@@ -78,6 +78,11 @@ management:
       show-details: ALWAYS
 
 aegis:
+  rest:
+    connection:
+      connection-request-timeout: 3000
+      connect-timeout: 3000
+      read-timeout: 6000
   name: bjtemplate
   version: 1.0.0
   profile: /data

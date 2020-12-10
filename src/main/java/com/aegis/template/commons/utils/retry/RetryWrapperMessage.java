@@ -17,9 +17,12 @@ public class RetryWrapperMessage<T> {
   @Getter
   private T payload;
   @Getter
+  private String queueName;
+  @Getter
   private Integer retryCount = 0;
 
-  public RetryWrapperMessage(String id, Integer retryCount, T payload) {
+  public RetryWrapperMessage(String queueName, String id, Integer retryCount, T payload) {
+    this.queueName = queueName;
     this.id = id;
     this.retryCount = retryCount;
     this.payload = payload;

@@ -15,7 +15,7 @@ import java.io.IOException;
  * @since 1.0.0
  */
 @Slf4j
-class PersistenceDispatcherQueue<T> extends BaseDispatcherQueue<T> {
+public class PersistenceDispatcherQueue<T> extends BaseDispatcherQueue<T> {
   private static final String PATH = GlobalConfig.getProfile() + "/retryDb";
   private static final GenericJackson2JsonRetrySerializer serializer = new GenericJackson2JsonRetrySerializer();
   private StoreService<T> tLevelDbStoreServiceError;

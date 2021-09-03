@@ -8,7 +8,7 @@
         <version>2.3.2.RELEASE</version>
         <relativePath/>
     </parent>
-    <groupId>com.aegis</groupId>
+    <groupId>com.wanggang</groupId>
     <artifactId>template</artifactId>
     <version>1.0.0</version>
     <name>template</name>
@@ -168,7 +168,7 @@
         </dependency>
 
         <!-- excel导入导出 http://easypoi.mydoc.io/#text_197818 依赖poi4.1.1+ -->
-        <!-- https://confluence.aegis-info.com/pages/viewpage.action?pageId=26574899 -->
+        <!-- https://confluence.wanggang-info.com/pages/viewpage.action?pageId=26574899 -->
         <!-- https://gitee.com/lemur/easypoi-spring-boot-starter -->
         <dependency>
             <groupId>cn.afterturn</groupId>
@@ -317,12 +317,12 @@
         <repository>
             <id>releases</id>
             <name>Releases</name>
-            <url>http://nexus.aegis-info.com/repository/maven-releases/</url>
+            <url>http://nexus.wanggang-info.com/repository/maven-releases/</url>
         </repository>
         <snapshotRepository>
             <id>snapshots</id>
             <name>Snapshot</name>
-            <url>http://nexus.aegis-info.com/repository/maven-snapshots/</url>
+            <url>http://nexus.wanggang-info.com/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 </project>

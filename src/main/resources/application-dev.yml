@@ -1,10 +1,10 @@
 spring:
   datasource:
     driver-class-name: com.p6spy.engine.spy.P6SpyDriver
-    url: jdbc:p6spy:mysql://114.115.179.177:3309/bjtemplate?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    url: jdbc:p6spy:mysql://114.115.179.172:3309/bjtemplate?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
 
 logging:
-#  config: classpath:logback-dev.xml
+  #  config: classpath:logback-dev.xml
   level:
     root: info
-    com.aegis.template.mapper: trace
+    com.wanggang.template.mapper: trace

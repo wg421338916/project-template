@@ -2,7 +2,7 @@ server:
   port: 8080
   servlet:
     session:
-      timeout: 25200 # sessionè¶…æ—¶æ—¶é—´ä¸º25200ç§’=7å¤©
+      timeout: 25200 # session³¬Ê±Ê±¼äÎª25200Ãë=7Ìì
 
 spring:
   boot:
@@ -14,10 +14,10 @@ spring:
               name: ${spring.boot.admin.client.username}
               password: ${spring.boot.admin.client.password}
         url: http://localhost:${server.port}
-        username: aegis
+        username: wanggang
         password: 6543er1!
       ui:
-        title: ${aegis.name}
+        title: ${wanggang.name}
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     druid:
@@ -38,8 +38,8 @@ spring:
       connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
       use-global-data-source-stat: true
     type: com.alibaba.druid.pool.DruidDataSource
-    password: Txtfy_CC_Court_2019
-    url: jdbc:mysql://114.115.179.177:3309/bjtemplate?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    password: Txtfy_CC_Court_201922
+    url: jdbc:mysql://114.115.179.172:3309/bjtemplate?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
     username: court
   redis:
     host: 192.168.10.7
@@ -48,25 +48,25 @@ spring:
     password:
     lettuce:
       pool:
-        # æœ€å¤§æ´»è·ƒé“¾æ¥æ•° é»˜è®¤8
+        # ×î´ó»îÔ¾Á´½ÓÊı Ä¬ÈÏ8
         max-active: 8
-        # æœ€å¤§ç©ºé—²è¿æ¥æ•° é»˜è®¤8
+        # ×î´ó¿ÕÏĞÁ¬½ÓÊı Ä¬ÈÏ8
         max-idle: 8
-        # æœ€å°ç©ºé—²è¿æ¥æ•° é»˜è®¤0
+        # ×îĞ¡¿ÕÏĞÁ¬½ÓÊı Ä¬ÈÏ0
         min-idle: 0
 #mybatis plus
 mybatis-plus:
   mapper-locations: classpath*:/mapper/*.xml
-  #å®ä½“æ‰«æï¼Œå¤šä¸ªpackageç”¨é€—å·æˆ–è€…åˆ†å·åˆ†éš”
-  type-aliases-package: com.aegis.template.model.*
-  typeEnumsPackage: com.aegis.template.model.enums
+  #ÊµÌåÉ¨Ãè£¬¶à¸öpackageÓÃ¶ººÅ»òÕß·ÖºÅ·Ö¸ô
+  type-aliases-package: com.wanggang.template.model.*
+  typeEnumsPackage: com.wanggang.template.model.enums
   global-config:
-    #åˆ·æ–°mapper è°ƒè¯•ç¥å™¨
+    #Ë¢ĞÂmapper µ÷ÊÔÉñÆ÷
     db-config:
       logic-delete-field: deleted
       logic-delete-value: 1
       logic-not-delete-value: 0
-#å¥åº·æ£€æŸ¥ã€å®¡è®¡ã€ç»Ÿè®¡å’Œç›‘æ§
+#½¡¿µ¼ì²é¡¢Éó¼Æ¡¢Í³¼ÆºÍ¼à¿Ø
 management:
   endpoints:
     web:
@@ -77,12 +77,12 @@ management:
     health:
       show-details: ALWAYS
 
-aegis:
+wanggang:
   name: bjtemplate
   version: 1.0.0
   profile: /data
   cors:
-    #æºå¸¦cookieè°ƒç”¨éœ€è¦é…ç½®ä¸ºåŸŸå
+    #Ğ¯´øcookieµ÷ÓÃĞèÒªÅäÖÃÎªÓòÃû
     origins: '*'
   encrypt:
     seed: Yq3tIi8Td7d3/Ct8y+3Llw==
